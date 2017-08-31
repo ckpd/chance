@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.islandcode.ckpd.chance.DetailActivity">
+
+    <View
+        android:id="@+id/cont_colored_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/div_center"
+        />
+    <TextView
+        android:id="@+id/lbl_date_and_time_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        tools:text="2:43AM 09/7/2018"
+        android:layout_above="@id/div_center"
+        style="@style/Text.Primary"
+
+        />
+    <View
+        android:id="@+id/div_center"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        />
+    <TextView
+        android:id="@+id/lbl_message_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/div_center"
+        android:padding="16dp"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tellus purus, auctor sit amet congue et, imperdiet ut justo. Aenean maximus augue non neque posuere consectetur. Suspendisse lectus enim, vestibulum et luctus quis, hendrerit et sapien. Fusce efficitur nisi lorem, in dictum orci pretium rhoncus. Nunc suscipit condimentum rhoncus. Sed egestas, leo vitae sodales fringilla, nisi massa lobortis nunc, ac viverra eros nibh quis lectus. Aliquam erat volutpat"
+        style="@style/Text.Secondary"
+        />
+</RelativeLayout>
