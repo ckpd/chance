@@ -13,7 +13,6 @@ import java.util.List;
  */
 
 public interface DataSourceInterface {
-    List<ListItem> getListOfData();
     List<ListItem> getListOfData(Context context);
     ListItem createNewListItem();
 

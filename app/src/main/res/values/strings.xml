@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">chance</string>
+    <string name="app_name">Grenada Lotto Results</string>
+
+    <string name="copy_right">Copyrights © %1$d</string>
+    <string name="title_activity_about">About Us</string>
+    <string name="app_version">Version 1.0</string>
 </resources>

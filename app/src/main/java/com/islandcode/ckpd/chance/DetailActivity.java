@@ -36,7 +36,7 @@ public class DetailActivity extends AppCompatActivity {
         message = (TextView) findViewById(R.id.lbl_message_body);
         message.setText(messageExtra);
 
-        coloredBackground = findViewById(R.id.imv_date_and_time);
+        coloredBackground = findViewById(R.id.lbl_Free_Ticket_Number);
         coloredBackground.setBackgroundResource(
                 drawableResourceExtra
         );

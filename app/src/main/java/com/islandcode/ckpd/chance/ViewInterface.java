@@ -11,8 +11,6 @@ import java.util.List;
 
 public interface ViewInterface {
 
-    void startDetailActivity(String dateAndTime, String winningNumbers, String title, int colorResource);
-
     void setUpAdapterAndView(List<ListItem> listOfData);
 
 }

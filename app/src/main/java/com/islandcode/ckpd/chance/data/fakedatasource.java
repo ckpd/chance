@@ -55,7 +55,7 @@ public class fakedatasource implements DataSourceInterface {
 
 
     @Override
-    public List<ListItem> getListOfData() {
+    public List<ListItem> getListOfData(Context context) {
         ArrayList<ListItem> listOfData = new ArrayList<>();
         Random random = new Random();
         //make 12 semi-random items
@@ -67,11 +67,6 @@ public class fakedatasource implements DataSourceInterface {
         }
 
         return listOfData;
-    }
-
-    @Override
-    public List<ListItem> getListOfData(Context context) {
-        return null;
     }
 
 
@@ -87,6 +82,7 @@ public class fakedatasource implements DataSourceInterface {
         ListItem listItem = new ListItem(
                 datesAndTimes[randOne],
                 winningNumbers[randTwo],
+                title[randThree],
                 title[randThree],
                 colors[randFour]
         );

@@ -8,12 +8,15 @@ public class ListItem {
     private String dateAndTime;
     private String WinningNumbers;
     private String Title;
+    private String FreeTicketLetter;
     private int colorResource;
 
 
-    public ListItem(String dateAndTime, String winningNumbers, String title, int colorResource) {
+
+    public ListItem(String dateAndTime, String winningNumbers, String title, String freeTicketLetter, int colorResource) {
         this.dateAndTime = dateAndTime;
-        WinningNumbers = winningNumbers;
+        this.WinningNumbers = winningNumbers;
+        this.FreeTicketLetter = freeTicketLetter;
         Title = title;
         this.colorResource = colorResource;
     }
@@ -50,5 +53,14 @@ public class ListItem {
 
     public void setColorResource(int colorResource) {
         this.colorResource = colorResource;
+    }
+
+
+    public String getFreeTicketLetter() {
+        return FreeTicketLetter;
+    }
+
+    public void setFreeTicketLetter(String freeTicketLetter) {
+        this.FreeTicketLetter = freeTicketLetter;
     }
 }

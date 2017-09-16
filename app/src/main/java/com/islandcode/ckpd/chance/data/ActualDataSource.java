@@ -50,20 +50,20 @@ public class ActualDataSource implements DataSourceInterface {
     }
 
 
-    @Override
-    public List<ListItem> getListOfData() {
-        ArrayList<ListItem> listOfData = new ArrayList<>();
-        Random random = new Random();
-        //make 12 semi-random items
-        for (int i = 0; i < 12; i++) {
-
-            listOfData.add(
-                    createNewListItem()
-            );
-        }
-
-        return listOfData;
-    }
+//    @Override
+//    public List<ListItem> getListOfData(Context context) {
+//        ArrayList<ListItem> listOfData = new ArrayList<>();
+//        Random random = new Random();
+//        //make 12 semi-random items
+//        for (int i = 0; i < 12; i++) {
+//
+//            listOfData.add(
+//                    createNewListItem()
+//            );
+//        }
+//
+//        return listOfData;
+//    }
 
     @Override
     public List<ListItem> getListOfData(Context context) {
@@ -77,7 +77,7 @@ public class ActualDataSource implements DataSourceInterface {
 
         //creates a semi-random ListItem
         ListItem listItem = new ListItem(
-                "as","as","ad", R.color.colorAccent
+                "as","as","ad","", R.color.colorAccent
 
         );
 
