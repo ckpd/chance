@@ -59,7 +59,8 @@ public class Controller {
 
     public void getListFromDataSource() {
 
-        String url = "https://enigmatic-island-75306.herokuapp.com/";
+//        String url = "https://enigmatic-island-75306.herokuapp.com/";
+        String url = "http://18.220.235.100:8080/";
 
         JsonArrayRequest jsonRequest = new JsonArrayRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONArray>() {
@@ -67,7 +68,6 @@ public class Controller {
             public void onResponse(JSONArray response) {
                 ArrayList<ListItem> listOfData = new ArrayList<>();
                 for (int i = 0; i < response.length(); i++) {
-
                     try{
                         JSONObject item = response.getJSONObject(i);
                         JSONObject metadata = item.getJSONObject("metadata");

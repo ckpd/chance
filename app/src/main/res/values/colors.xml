@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6E5773</color>
-    <color name="colorPrimaryDark">#00695c</color>
-    <color name="colorAccent">#393E46</color>
-    <color name="colorComp">#00695c</color>
-    <color name="colorComp1">#00796b</color>
-    <color name="colorComp2">#00897b</color>
-    <color name="colorComp3">#009688</color>
-    <color name="colorComp4">#26a69a</color>
+    <color name="colorPrimary">#1565c0</color>
+    <color name="colorPrimaryDark">#0d47a1</color>
+    <color name="colorAccent">#3FC1C9</color>
+    <color name="colorComp">#1565c0</color>
+    <color name="colorComp1">#00838f</color>
+    <color name="colorComp2">#9e9d24</color>
+    <color name="colorComp3">#f57f17</color>
+    <color name="colorComp4">#d84315</color>
     <color name="bkg">#222831</color>
     <color name="font">#fff</color>
+    <color name="font2">#333</color>
+    <color name="winning">#00695c</color>
+    <color name="freetick">#ff9800</color>
 
     <color name="appBackground">#FAFAFA</color>
 </resources>

@@ -17,7 +17,6 @@
         android:id="@+id/lbl_date_and_time_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
         tools:text="2:43AM 09/7/2018"
         android:layout_above="@id/div_center"
         style="@style/Text.Primary"

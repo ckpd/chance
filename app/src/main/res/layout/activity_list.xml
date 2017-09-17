@@ -6,17 +6,31 @@
     android:id="@+id/main_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/appBackground"
 
     >
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_ad"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
 
-        <android.support.v4.widget.SwipeRefreshLayout
-            xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/root_list_activity"
-            tools:context="com.islandcode.ckpd.chance.ListActivity"/>
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="fill_parent"
+            android:layout_height="53dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"
+            android:layout_marginBottom="3dp">
+
+        </com.google.android.gms.ads.AdView>
+
+    </LinearLayout>
+
 
     <android.support.v7.widget.RecyclerView
 
@@ -24,6 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
 
 
     <android.support.design.widget.AppBarLayout
@@ -34,6 +50,7 @@
         android:fitsSystemWindows="true"
         >
 
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/my_toolbar"
             android:layout_width="match_parent"
@@ -42,7 +59,8 @@
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-        </android.support.design.widget.AppBarLayout>
+    </android.support.design.widget.AppBarLayout>
+
 
 
 </android.support.design.widget.CoordinatorLayout>

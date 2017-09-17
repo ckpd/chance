@@ -21,6 +21,8 @@ import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.islandcode.ckpd.chance.data.ActualDataSource;
 import com.islandcode.ckpd.chance.data.ListItem;
 import com.islandcode.ckpd.chance.data.fakedatasource;
@@ -33,6 +35,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class ListActivity extends AppCompatActivity implements ViewInterface, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String TAG = " ";
@@ -44,6 +51,7 @@ public class ListActivity extends AppCompatActivity implements ViewInterface, Sw
     private CustomAdapter adapter;
     private SwipeRefreshLayout swipeLayout;
     private Controller controller;
+    private AdView mAdView;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,6 +64,12 @@ public class ListActivity extends AppCompatActivity implements ViewInterface, Sw
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-1729247271373475~3143119734");
+
+
+
+
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -82,25 +96,36 @@ public class ListActivity extends AppCompatActivity implements ViewInterface, Sw
         adapter = new CustomAdapter();
         recyclerView.setAdapter(adapter);
 
+
+
+        mAdView = (AdView) findViewById(R.id.adView);
+
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .build();
+
+        mAdView.loadAd(adRequest);
+
+
 //        swipeLayout = (SwipeRefreshLayout) findViewById(R.id.root_list_activity);
 //        swipeLayout.setColorSchemeResources(R.color.colorComp, R.color.colorComp1, R.color.colorComp2, R.color.colorComp3, R.color.colorComp4);
 
-        swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-
-                Date currentTime = Calendar.getInstance().getTime();
-
-                Context context = getApplicationContext();
-                CharSequence text = "Updated "+ currentTime;
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-
-                swipeLayout.setRefreshing(false);
-            }
-        });
+//        swipeLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//
+//                Date currentTime = Calendar.getInstance().getTime();
+//
+//                Context context = getApplicationContext();
+//                CharSequence text = "Updated "+ currentTime;
+//                int duration = Toast.LENGTH_SHORT;
+//
+//                Toast toast = Toast.makeText(context, text, duration);
+//                toast.show();
+//
+//                swipeLayout.setRefreshing(false);
+//            }
+//        });
 
 
     }
@@ -197,6 +222,19 @@ public class ListActivity extends AppCompatActivity implements ViewInterface, Sw
             case R.id.action_refresh:
                 intent = new Intent(this, ListActivity.class);
                 startActivity(intent);
+
+                Date currentTime = Calendar.getInstance().getTime();
+
+                Context context = getApplicationContext();
+                CharSequence text = "Updated "+ currentTime;
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+
+
+
+
                 return true;
 
             default:
@@ -205,6 +243,34 @@ public class ListActivity extends AppCompatActivity implements ViewInterface, Sw
                 return super.onOptionsItemSelected(item);
 
         }
+    }
+
+
+    /** Called when leaving the activity */
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+    /** Called when returning to the activity */
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    /** Called before the activity is destroyed */
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
     }
 }
 
